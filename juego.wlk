@@ -10,6 +10,7 @@ object juego {
   var dificultad = 0
   
   method inicio() {
+    juegoIniciado = false
     self.prepararTablero()
     self.presentacion()
   }
@@ -48,6 +49,10 @@ object juego {
     game.removeVisual(paloma)
     game.removeTickEvent("AvanzarMuros")
     game.removeTickEvent("HacerMuros")
+    keyboard.z().onPressDo({
+      game.clear()
+      self.inicio()
+      })
   }
   
   method jugar() {
