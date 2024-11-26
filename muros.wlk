@@ -1,6 +1,8 @@
 import paloma.*
 import juego.*
 import configuraciones.*
+import sonidos.*
+
 
 class Muro {
   const property bloques = [
@@ -95,6 +97,7 @@ class Especial inherits Bloque {
   override method interaccionPaloma() {
     if (paloma.color() == color) {
       juego.sumarPunto()
+      punto.play()
     } else {
       juego.perder()
     }

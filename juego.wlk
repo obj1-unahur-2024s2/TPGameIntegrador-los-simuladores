@@ -2,6 +2,7 @@ import paloma.*
 import muros.*
 import configuraciones.*
 import puntos.*
+import sonidos.*
 
 object juego {
   const muros = []
@@ -44,13 +45,15 @@ object juego {
   }
   
   method perder() {
+    perder.play()
     game.removeVisual(game.allVisuals())
     game.addVisual(pantallaPerder)
     game.removeVisual(paloma)
     game.removeTickEvent("AvanzarMuros")
     game.removeTickEvent("HacerMuros")
+    game.removeTickEvent("cambio")
     keyboard.z().onPressDo({
-      game.clear()
+      game.clear();
       self.inicio()
       })
   }

@@ -1,6 +1,8 @@
 import muros.*
 import juego.*
 import configuraciones.*
+import sonidos.*
+
 
 object paloma {
   const posicionX = 1
@@ -12,6 +14,7 @@ object paloma {
   
   method cambiarVersion() {
     version = version.siguiente()
+    aleteo.play()
   }
   
   method position() = game.at(posicionX, posicionY)
